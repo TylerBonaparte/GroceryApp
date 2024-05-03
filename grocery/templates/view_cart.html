@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        h1 {
+            color: #007bff;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        .total-price {
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .continue-shopping {
+            display: block;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .continue-shopping:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Cart</h1>
+        <ul>
+            {% for cart_item in cart_items %}
+                <li>{{ cart_item.item.name }} - Quantity: {{ cart_item.quantity }} - Total: ${{ cart_item.item.price|mul:cart_item.quantity }}</li>
+            {% endfor %}
+        </ul>
+        <p class="total-price">Total Price: ${{ total_price }}</p>
+        <a class="continue-shopping" href="{% url 'item_list' %}">Continue Shopping</a>
+    </div>
+</body>
+</html>

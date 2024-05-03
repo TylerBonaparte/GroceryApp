@@ -1,0 +1,177 @@
+<!-- grocery/templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin-top: 70px; /* Adjusted to accommodate the fixed navigation bar */
+        }
+
+        .navbar {
+            background-color: #007bff;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-right: 20px;
+        }
+
+        .hero-section {
+            background-image: url('https://blog.protiviti.com/wp-content/uploads/2018/07/AdobeStock_99824542_RF_3840x2400_RGB-1500x500.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero-text {
+            max-width: 800px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem; /* Increased font size */
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.5rem; /* Increased font size */
+            margin-bottom: 30px; /* Increased margin */
+        }
+
+        .hero-button {
+            margin-top: 30px; /* Added margin */
+        }
+
+        .cart-icon {
+            color: #fff;
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .product-category {
+            margin-top: 50px;
+        }
+
+        .product-category h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .product-card img {
+            max-width: 100%;
+        }
+
+        .product-card h3 {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .product-card p {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Grocery Shop</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'grocery:home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'grocery:categories' %}">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'grocery:about_us' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'grocery:contact' %}">Contact</a>
+                    </li>
+                    <!-- Cart Icon -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'grocery:cart' %}">Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <div class="hero-text">
+                <h1>Welcome to Tyler's Grocery Shop</h1>
+                <p>Find everything you need for your kitchen and more!</p>
+                <a href="#" class="btn btn-primary btn-lg hero-button">Shop Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Categories -->
+    <div class="container product-category">
+        <h2>Popular Categories</h2>
+        <div class="row">
+            <!-- Product Category Cards -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://www.anchordairy.com/content/dam/anchordairy/products/cheese-culinary/anchor-processed-cheddar-slices-teaser.png" alt="Product Image">
+                    <h3>Cheese</h3>
+                    <p>Cheese is a nutrient-dense dairy food, providing protein, fats, and minerals. Some hard block cheeses that contain little moisture 
+                        like Parmigiano-Reggiano and aged cheddar are easily stored and travel well because they do not require refrigeration.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://i5.walmartimages.com/seo/Great-Value-White-Round-Top-Bread-Loaf-20-oz_8e69fca6-dda1-47b1-959c-7ec4d84b0a58.8cae75bc1ffe9c3d1ece768c0e5447a2.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF" alt="Product Image">
+                    <h3>Bread</h3>
+                    <p>Bread is a baked food product made of flour or meal that is moistened, kneaded, and sometimes fermented. A major food since prehistoric times, it has been made in various forms using a variety of ingredients and methods throughout the world.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://shopshoptnt.com/wp-content/uploads/2020/01/ORCHARD-ORANGE-1L.jpg" alt="Product Image">
+                    <h3>Juice</h3>
+                    <p>Mayfield Orchard Pure 100% Orange Juice with Calcium is made from the goodness of real oranges for sweet, mouth-watering taste that? s an excellent source of vitamin C and calcium. This delicious juice is a perfect way to start out the day.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
